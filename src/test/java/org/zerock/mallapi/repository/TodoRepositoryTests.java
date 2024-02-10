@@ -40,5 +40,20 @@ public class TodoRepositoryTests {
 
         log.info(todo);
     }
+
+    @Test
+    public void testModify() {
+
+        Long tno = 33L;
+
+        java.util.Optional<Todo> result = todoRepository.findById(tno);
+
+        Todo todo = result.orElseThrow();
+        todo.changeTitle("Modified 33...");
+        todo.changeComplete(true);
+        todo.changeDueDate(LocalDate.of(2023,10,10));
+
+        todoRepository.save(todo);
+    }
     
 }
