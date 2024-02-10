@@ -55,5 +55,12 @@ public class TodoRepositoryTests {
 
         todoRepository.save(todo);
     }
+
+    @Test
+    public void testDelete() {
+        Long tno = 1L;
+
+        todoRepository.deleteById(tno);
+    }
     
 }
